@@ -1,0 +1,82 @@
+/* Container for main layout */
+.jefeRRHH-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f3f7fa;
+}
+
+/* Navbar styling */
+.navbar-custom {
+  background-color: #003366;
+  padding: 15px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-custom .navbar-brand {
+  font-weight: 700;
+  color: #f1f1f1;
+  font-size: 1.6rem;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+  color: #e0e4e8;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:focus {
+  color: #00aaff;
+}
+
+/* Dropdown hover effect to show on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu .dropdown-item {
+  padding: 10px 20px;
+  color: #003366;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #e0f4ff;
+  color: #003366;
+}
+
+/* Main content styling */
+.main-content {
+  flex: 1;
+  padding: 40px 20px;
+  background: #e9ecef;
+}
+
+.main-content h1 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #003366;
+}
+
+.main-content p {
+  font-size: 1.2rem;
+  color: #495057;
+}
+
+/* Footer styling */
+.footer-custom {
+  background-color: #003366;
+  color: #e0e4e8;
+  padding: 15px;
+  font-size: 0.9rem;
+}

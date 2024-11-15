@@ -1,0 +1,113 @@
+/* Container for the main content */
+.calendario-empleado-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.calendario-empleado-main-content {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.calendario-empleado-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns for each day of the week */
+  gap: 5px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+/* Header for days of the week */
+.calendario-empleado-header {
+  font-weight: bold;
+  color: #555;
+  background-color: #e9ecef;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Style for individual day cells */
+.calendario-empleado-day {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.calendario-empleado-day-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 5px;
+}
+
+/* Colors for each shift type */
+.calendario-empleado-turno-label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.calendario-empleado-turno-libre {
+  color: #007bff; /* Azul */
+}
+
+.calendario-empleado-turno-mañana {
+  color: #28a745; /* Verde */
+}
+
+.calendario-empleado-turno-tarde {
+  color: #ffc107; /* Amarillo */
+}
+
+.calendario-empleado-turno-noche {
+  color: #dc3545; /* Rojo */
+}
+
+/* Navbar styling */
+.calendario-empleado-navbar {
+  background-color: #343a40;
+}
+
+.calendario-empleado-navbar .navbar-brand {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.calendario-empleado-navbar .navbar-brand:hover {
+  color: #007bff;
+}
+
+/* Footer styling */
+.calendario-empleado-footer {
+  background-color: #343a40;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  width: 100%;
+  margin-top: auto;
+}
+
+.calendario-empleado-footer p {
+  margin: 0;
+}
+
+/* Month navigation buttons */
+.calendario-empleado-nav-buttons button {
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 5px;
+}

@@ -1,0 +1,43 @@
+.beneficios-empleado-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  height: 100%;
+}
+
+.beneficios-empleado-card:hover {
+  transform: translateY(-5px);
+}
+
+.beneficios-empleado-card .card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.beneficios-empleado-card .card-text {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.beneficios-empleado-card .btn-container {
+  margin-top: auto;
+}
+
+.beneficios-empleado-card .btn {
+  font-size: 1rem;
+  padding: 10px;
+  width: 100%; /* Para que el botón ocupe toda la tarjeta */
+}
+
+.beneficios-empleado-card .btn-outline-info {
+  color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.beneficios-empleado-card .btn-outline-info:hover {
+  background-color: #17a2b8;
+  color: white;
+}

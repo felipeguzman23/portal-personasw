@@ -1,0 +1,84 @@
+/* Contenedor principal */
+.calendario-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenedor del contenido principal */
+.calendario-container .main-content {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Grilla del calendario */
+.calendario-container .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columnas para cada día de la semana */
+  gap: 5px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+/* Cabecera para los días de la semana */
+.calendario-container .calendar-header {
+  font-weight: bold;
+  color: #555;
+  background-color: #e9ecef;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Estilo para cada día en el calendario */
+.calendario-container .calendar-day {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendario-container .calendar-day select {
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+/* Colores para turnos */
+.calendario-container .scheduled.morning {
+  background-color: #c3e6cb; /* Verde claro */
+}
+
+.calendario-container .scheduled.afternoon {
+  background-color: #ffeeba; /* Amarillo claro */
+}
+
+.calendario-container .scheduled.night {
+  background-color: #f5c6cb; /* Rojo claro */
+}
+
+.calendario-container .scheduled.free {
+  background-color: #e2e3e5; /* Gris claro */
+}
+
+/* Numeración del día */
+.calendario-container .day-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 5px;
+}
+
+/* Etiqueta de turno */
+.calendario-container .turno-label {
+  font-size: 0.9rem;
+  color: #333;
+}

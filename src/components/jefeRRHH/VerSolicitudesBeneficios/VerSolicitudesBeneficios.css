@@ -1,0 +1,141 @@
+/* Container for the entire page content */
+.ver-solicitudes-beneficios-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the container takes up the full viewport height */
+  background-color: #f7f9fc;
+}
+
+/* The main content should grow to fill available space */
+.ver-solicitudes-beneficios-content {
+  flex: 1;
+  padding-top: 80px; /* Ensures content doesn't overlap with the navbar */
+  padding-bottom: 80px; /* Avoids overlap with the footer */
+  margin-top: 60px;
+  padding: 20px;
+}
+
+/* Navbar styling */
+.ver-solicitudes-beneficios-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #343a40;
+  height: 60px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ver-solicitudes-beneficios-navbar .navbar-brand,
+.ver-solicitudes-beneficios-navbar .nav-link {
+  color: white !important;
+  font-weight: 500;
+}
+
+.ver-solicitudes-beneficios-navbar .navbar-brand:hover,
+.ver-solicitudes-beneficios-navbar .nav-link:hover {
+  color: #007bff !important;
+  transition: color 0.3s ease;
+}
+
+/* Footer styling */
+.ver-solicitudes-beneficios-footer {
+  background-color: #343a40;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  border-top: 3px solid #007bff;
+}
+
+.ver-solicitudes-beneficios-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Styling for cards and content within the main section */
+.ver-solicitudes-beneficios-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e0e4e8;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.ver-solicitudes-beneficios-titulo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #343a40;
+  margin-bottom: 15px;
+}
+
+.ver-solicitudes-beneficios-card hr {
+  border-color: #007bff;
+  border-width: 2px;
+  margin: 10px 0;
+}
+
+.ver-solicitudes-beneficios-card p {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+/* Table styling within the card */
+.ver-solicitudes-beneficios-card table {
+  margin-top: 15px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.ver-solicitudes-beneficios-card table thead th {
+  background-color: #f1f3f5;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.ver-solicitudes-beneficios-card table tbody tr {
+  background-color: #ffffff;
+}
+
+.ver-solicitudes-beneficios-card table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.ver-solicitudes-beneficios-card table td,
+.ver-solicitudes-beneficios-card table th {
+  padding: 10px;
+  text-align: center;
+  border: none;
+}
+
+/* Button styling within the card */
+.ver-solicitudes-beneficios-card button {
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ver-solicitudes-beneficios-card button:hover {
+  opacity: 0.9;
+}
+
+/* Ensure the footer and navbar are correctly positioned and responsive */
+@media (max-width: 768px) {
+  .ver-solicitudes-beneficios-navbar .nav-link {
+      font-size: 0.9rem;
+  }
+
+  .ver-solicitudes-beneficios-footer {
+      font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,121 @@
+/* Asegúrate de que el contenedor principal ocupe toda la altura de la pantalla */
+.capacitaciones-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* La página ocupará al menos toda la altura de la pantalla */
+  }
+  
+  .main-content {
+    flex: 1; /* Esto asegura que el contenido principal tome el espacio disponible */
+    padding: 20px;
+  }
+  
+  /* Estilos del navbar */
+  .navbar {
+    background-color: #343a40; /* Fondo oscuro personalizado */
+    border-bottom: 2px solid #007bff; /* Borde azul */
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff !important; /* Color blanco para el texto del logo */
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: #ffffff !important; /* Enlaces en blanco */
+    margin-left: 10px; /* Espaciado entre los enlaces */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #007bff !important; /* Color azul al hacer hover */
+  }
+  
+  .navbar-toggler {
+    border-color: #ffffff; /* Color del borde del botón hamburguesa */
+  }
+  
+  /* Estilos del footer */
+  footer {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilos para las tarjetas de capacitaciones */
+  .card {
+    border-radius: 8px;
+    border: none;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Estilos para el modal */
+  .modal-header {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .modal-body .form-label {
+    font-size: 1.1rem;
+  }
+  
+  .modal-body .form-control {
+    border-radius: 6px;
+  }
+  
+  .modal-footer button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+  
+  /* Botón para abrir el modal */
+  button.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Añadir espacio entre las capacitaciones creadas */
+  .row .col-md-4 {
+    margin-bottom: 20px;
+  }
+  

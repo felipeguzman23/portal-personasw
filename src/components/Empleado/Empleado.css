@@ -1,0 +1,62 @@
+.empleado-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+}
+
+.main-content {
+    flex: 1; /* Permite que el contenido principal tome el espacio disponible */
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #343a40; /* Fondo oscuro para la navbar */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff !important; /* Color blanco para el texto del logo */
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: #ffffff !important; /* Enlaces en blanco */
+    margin-left: 10px; /* Espaciado entre los enlaces */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff !important; /* Color azul al hacer hover */
+}
+
+footer {
+    background-color: #343a40; /* Fondo oscuro para el footer */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.card {
+    border-radius: 8px; /* Bordes redondeados para las tarjetas */
+    border: none; /* Sin borde */
+}
+
+.card-title {
+    font-size: 1.25rem; /* Tamaño de fuente para el título de la tarjeta */
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem; /* Tamaño de fuente para el texto de la tarjeta */
+    color: #555; /* Color gris para el texto */
+}
+
+.container {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+}
