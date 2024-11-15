@@ -1,4 +1,5 @@
 // src/components/empleado/CalendarioEmpleado.js
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CalendarioEmpleado.css';
@@ -7,13 +8,13 @@ const CalendarioEmpleado = () => {
   const [calendario, setCalendario] = useState({});
   const [mes, setMes] = useState(new Date().getMonth());
   const [año, setAño] = useState(new Date().getFullYear());
-  const empleadoId = 1; // Example ID, can be dynamic if needed
+  const empleadoId = 1; // Ejemplo de ID, puede ser dinámico si es necesario
 
   useEffect(() => {
     const savedCalendar = localStorage.getItem('calendario');
     if (savedCalendar) {
       const allTurnos = JSON.parse(savedCalendar);
-      const employeeSchedule = allTurnos[empleadoId]?.[año]?.[mes] || {}; // Get shifts for the specific employee, month, and year
+      const employeeSchedule = allTurnos[empleadoId]?.[año]?.[mes] || {}; // Obtener turnos del empleado
       setCalendario(employeeSchedule);
     }
   }, [mes, año]);
@@ -29,12 +30,12 @@ const CalendarioEmpleado = () => {
     const daysInMonth = new Date(año, mes + 1, 0).getDate();
     const calendarDays = [];
 
-    // Fill in blank days for the first row if the month doesn't start on Sunday
+    // Días en blanco al inicio de la cuadrícula
     for (let i = 0; i < firstDayOfMonth; i++) {
       calendarDays.push({ day: null, turno: null });
     }
 
-    // Fill in actual days of the month with their assigned shifts (if any)
+    // Días del mes con turnos asignados
     for (let day = 1; day <= daysInMonth; day++) {
       calendarDays.push({ day, turno: calendario[day] || 'Libre' });
     }
@@ -48,10 +49,18 @@ const CalendarioEmpleado = () => {
   return (
     <div className="calendario-empleado-container d-flex flex-column min-vh-100">
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-custom">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">Empleado Clínica Inacap</Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
@@ -76,20 +85,20 @@ const CalendarioEmpleado = () => {
         </div>
       </nav>
 
-      {/* Main Content */}
+      {/* Contenido Principal */}
       <div className="calendario-empleado-main-content container py-4">
         <h1 className="text-center mb-4">Mi Calendario de Trabajo - {mes + 1}/{año}</h1>
 
-        {/* Calendar Grid */}
+        {/* Cuadrícula del Calendario */}
         <div className="calendario-empleado-grid">
-          {/* Days of the Week Header */}
+          {/* Encabezado de los Días de la Semana */}
           {daysOfWeek.map((day, index) => (
             <div key={index} className="calendario-empleado-header">
               {day}
             </div>
           ))}
 
-          {/* Days of the Month */}
+          {/* Días del Mes */}
           {calendarDays.map((dayInfo, index) => (
             <div key={index} className={`calendario-empleado-day ${dayInfo.turno !== 'Libre' ? 'calendario-empleado-scheduled' : ''}`}>
               {dayInfo.day ? (
@@ -104,7 +113,7 @@ const CalendarioEmpleado = () => {
           ))}
         </div>
 
-        {/* Month Navigation Buttons */}
+        {/* Navegación del Mes */}
         <div className="calendario-empleado-nav-buttons d-flex justify-content-between mt-4">
           <button className="btn btn-primary" onClick={() => cambiarMes(-1)}>Mes Anterior</button>
           <button className="btn btn-primary" onClick={() => cambiarMes(1)}>Mes Siguiente</button>
@@ -112,7 +121,7 @@ const CalendarioEmpleado = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-dark text-white text-center py-3 mt-auto">
+      <footer className="footer-custom text-center py-3 mt-auto">
         <p>&copy; 2024 Clínica Inacap | Todos los derechos reservados</p>
       </footer>
     </div>

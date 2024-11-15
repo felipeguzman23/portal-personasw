@@ -1,4 +1,5 @@
 // src/components/empleado/BeneficiosEmpleado.js
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Modal, Button, Form } from 'react-bootstrap';
@@ -42,7 +43,7 @@ const BeneficiosEmpleado = ({ beneficios, empleado }) => {
       beneficioId,
       empleado,
       archivo: archivo ? archivo.name : null,
-      estado: 'pendiente', // Estado inicial de la solicitud
+      estado: 'pendiente',
     };
 
     setSolicitudes((prevSolicitudes) => [...prevSolicitudes, nuevaSolicitud]);
@@ -53,10 +54,18 @@ const BeneficiosEmpleado = ({ beneficios, empleado }) => {
   return (
     <div className="beneficios-empleado-container d-flex flex-column min-vh-100">
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-custom">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">Empleado Clínica Inacap</Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
@@ -82,7 +91,7 @@ const BeneficiosEmpleado = ({ beneficios, empleado }) => {
       </nav>
 
       {/* Main Content */}
-      <div className="container my-5">
+      <div className="main-content container my-5">
         <h2 className="text-center mb-5 display-4">Beneficios Disponibles para {empleado.nombre}</h2>
         {beneficios.length === 0 ? (
           <p className="text-center lead">No hay beneficios disponibles en este momento.</p>
@@ -159,7 +168,7 @@ const BeneficiosEmpleado = ({ beneficios, empleado }) => {
                   variant="primary"
                   className="w-100 mt-3"
                   onClick={() => solicitarBeneficio(selectedBeneficio.id)}
-                  disabled={!archivo} // Disable button if no file
+                  disabled={!archivo}
                 >
                   Postularse
                 </Button>
@@ -177,7 +186,7 @@ const BeneficiosEmpleado = ({ beneficios, empleado }) => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-dark text-white text-center py-3 mt-auto">
+      <footer className="footer-custom text-center py-3 mt-auto">
         <p>&copy; 2024 Clínica Inacap | Todos los derechos reservados</p>
       </footer>
     </div>

@@ -1,0 +1,31 @@
+/* Estilos específicos para los datos personales del empleado */
+.datos-personales-empleado-container {
+  background-color: #f9f9f9;
+}
+
+.navbar-custom {
+  background-color: #343a40;
+}
+
+.navbar-custom .navbar-brand {
+  color: #fff;
+}
+
+.navbar-custom .nav-link {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #d4af37;
+}
+
+.table {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.footer-custom {
+  background-color: #343a40;
+  color: #fff;
+}

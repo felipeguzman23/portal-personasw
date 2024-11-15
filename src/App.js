@@ -1,5 +1,3 @@
-// src/App.js
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login/login';
@@ -14,7 +12,7 @@ import CalendarioEmpleado from './components/Empleado/CalendarioEmpleado/Calenda
 import CapacitacionesEmpleado from './components/Empleado/CapacitacionesEmpleado/CapacitacionesEmpleado';
 import VerSolicitudesBeneficios from './components/jefeRRHH/VerSolicitudesBeneficios/VerSolicitudesBeneficios';
 import DatosPersonalesEmpleado from './components/Empleado/DatosPersonalesEmpleado/DatosPersonalesEmpleado';
-
+import PrestamosEmpleado from './components/Empleado/PrestamosEmpleado/PrestamosEmpleado'; // Importación del nuevo componente
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -30,6 +28,37 @@ function App() {
     const storedSolicitudes = localStorage.getItem('solicitudes');
     return storedSolicitudes ? JSON.parse(storedSolicitudes) : [];
   });
+
+  // Estado de préstamos compartido entre Jefe RRHH y Empleado
+  const [prestamos, setPrestamos] = useState(() => {
+    const storedPrestamos = localStorage.getItem('prestamos');
+    return storedPrestamos ? JSON.parse(storedPrestamos) : [];
+  });
+
+  // Estado de capacitaciones
+  const [capacitaciones, setCapacitaciones] = useState(() => [
+    {
+      id: 1,
+      nombre: "Seguridad contra Incendios",
+      descripcion: "Capacitación sobre medidas y procedimientos de seguridad en caso de incendio.",
+      fecha: "2024-11-30",
+      habilitada: true,
+    },
+    {
+      id: 2,
+      nombre: "Higiene y Seguridad en Elementos Clínicos",
+      descripcion: "Capacitación sobre higiene y uso seguro de elementos clínicos.",
+      fecha: "2024-12-05",
+      habilitada: false,
+    },
+    {
+      id: 3,
+      nombre: "Uso de Equipos de Protección Personal",
+      descripcion: "Capacitación sobre el uso adecuado de los equipos de protección personal en el entorno clínico.",
+      fecha: "2024-12-10",
+      habilitada: true,
+    },
+  ]);
 
   const empleado = {
     nombre: 'Felipe Guzmán Vega',
@@ -48,42 +77,10 @@ function App() {
     localStorage.setItem('solicitudes', JSON.stringify(solicitudes));
   }, [solicitudes]);
 
-  const handleSolicitarBeneficio = (beneficioId) => {
-    const nuevaSolicitud = {
-      id: solicitudes.length + 1,
-      beneficioId,
-      empleado,
-    };
-    setSolicitudes((prevSolicitudes) => [...prevSolicitudes, nuevaSolicitud]);
-  };
-
-  const handleAprobarSolicitud = (solicitudId) => {
-    setSolicitudes((prevSolicitudes) =>
-      prevSolicitudes.filter((solicitud) => solicitud.id !== solicitudId)
-    );
-  };
-
-  const handleRechazarSolicitud = (solicitudId) => {
-    setSolicitudes((prevSolicitudes) =>
-      prevSolicitudes.filter((solicitud) => solicitud.id !== solicitudId)
-    );
-  };
-
-  const handleModificarBeneficio = (beneficioId, updatedBeneficio) => {
-    setBeneficios((prevBeneficios) =>
-      prevBeneficios.map((beneficio) =>
-        beneficio.id === beneficioId
-          ? { ...beneficio, ...updatedBeneficio }
-          : beneficio
-      )
-    );
-  };
-
-  const handleEliminarBeneficio = (beneficioId) => {
-    setBeneficios((prevBeneficios) =>
-      prevBeneficios.filter((beneficio) => beneficio.id !== beneficioId)
-    );
-  };
+  // Guardar préstamos en localStorage
+  useEffect(() => {
+    localStorage.setItem('prestamos', JSON.stringify(prestamos));
+  }, [prestamos]);
 
   return (
     <Router>
@@ -96,7 +93,6 @@ function App() {
               <JefeRRHH
                 setBeneficios={setBeneficios}
                 solicitudes={solicitudes}
-                handleAprobarSolicitud={handleAprobarSolicitud}
               />
             }
           />
@@ -106,8 +102,6 @@ function App() {
               <Beneficios
                 beneficios={beneficios}
                 setBeneficios={setBeneficios}
-                handleModificarBeneficio={handleModificarBeneficio}
-                handleEliminarBeneficio={handleEliminarBeneficio}
               />
             }
           />
@@ -120,15 +114,49 @@ function App() {
             element={
               <BeneficiosEmpleado
                 beneficios={beneficios}
-                handleSolicitarBeneficio={handleSolicitarBeneficio}
                 empleado={empleado}
               />
             }
           />
           <Route path="/calendario" element={<CalendarioDeTrabajo />} />
-          <Route path="/capacitaciones" element={<Capacitaciones />} />
-          <Route path="/prestamos" element={<PrestamosInternos />} />
-          <Route path="/capacitaciones-empleado" element={<CapacitacionesEmpleado />} />
+          <Route
+            path="/capacitaciones"
+            element={
+              <Capacitaciones
+                capacitaciones={capacitaciones}
+                setCapacitaciones={setCapacitaciones}
+              />
+            }
+          />
+          <Route
+            path="/capacitaciones-empleado"
+            element={
+              <CapacitacionesEmpleado
+                capacitaciones={capacitaciones.filter((c) => c.habilitada)}
+              />
+            }
+          />
+          <Route
+            path="/prestamos"
+            element={
+              <PrestamosInternos
+                prestamos={prestamos}
+                setPrestamos={setPrestamos}
+                solicitudes={solicitudes}
+                setSolicitudes={setSolicitudes}
+              />
+            }
+          />
+          <Route
+            path="/prestamos-empleado"
+            element={
+              <PrestamosEmpleado
+                prestamos={prestamos}
+                setSolicitudes={setSolicitudes}
+                empleado={empleado}
+              />
+            }
+          />
           <Route path="/calendario-empleado" element={<CalendarioEmpleado />} />
           <Route
             path="/ver-solicitudes-beneficios"
@@ -136,10 +164,6 @@ function App() {
               <VerSolicitudesBeneficios
                 beneficios={beneficios}
                 solicitudes={solicitudes}
-                handleAprobarSolicitud={handleAprobarSolicitud}
-                handleRechazarSolicitud={handleRechazarSolicitud}
-                handleModificarBeneficio={handleModificarBeneficio}
-                handleEliminarBeneficio={handleEliminarBeneficio}
               />
             }
           />
